@@ -1,0 +1,25 @@
+<form [formGroup]="appForm" (ngSubmit)="onSubmit()">
+    <p>
+        <label for="lastName">Nom</label>
+        <input id="lastName" type="text" formControlName="lastName">
+    </p>
+    <p>
+        <label for="firstName">Prénom</label>
+        <input id="firstName" type="text" formControlName="firstName">
+    </p>
+    <p>
+        <label for="telephone">Téléphone</label>
+        <input id="telephone" type="text" formControlName="telephone">
+    </p>
+    <p>
+        <label for="region">Région</label>
+        <select formControlName="region">
+          <option *ngFor="let region of regionList" [value]="region.code">{{ region.nom }}</option>
+        </select>
+    </p>
+    <p>
+        <button type="submit" [disabled]="!appForm.valid">Submit form</button>
+    </p>
+    <p *ngIf="isAdded">Ajouté avec succès</p>
+    <p *ngIf="!isAdded">Pas d'information ajoutée</p>
+</form>

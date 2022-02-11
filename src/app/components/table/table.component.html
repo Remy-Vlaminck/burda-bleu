@@ -1,0 +1,22 @@
+<table>
+    <thead>
+        <tr>
+            <th colspan="100%">Liste des informations utilisateurs</th>
+        </tr>
+        <tr *ngIf="userInfoList.length" class="column-names">
+            <td>Nom</td>
+            <td>Prénom</td>
+            <td>Téléphone</td>
+            <td>Région</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let userInfo of userInfoList; let userInfoIndex = index">
+            <td>{{ userInfo.lastName }}</td>
+            <td>{{ userInfo.firstName }}</td>
+            <td>{{ userInfo.telephone }}</td>
+            <td>{{ userInfo.region }}</td>
+            <td><button (click)="onRemove(userInfoIndex)">Supprimer</button></td>
+        </tr>
+    </tbody>
+</table>

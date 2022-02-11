@@ -1,0 +1,10 @@
+<form *ngIf="!isFilterActive" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+  <p>
+    <label for="list-search">Rechercher dans la liste : </label>
+    <input id="list-search" type="search" formControlName="list-search">
+    <button type="submit" [disabled]="!searchForm.valid">Rechercher</button>
+  </p>
+</form>
+<p *ngIf="isFilterActive">
+  <button (click)="onWithoutFilter()">Remettre les informations fitrées précedemment</button>
+</p>
